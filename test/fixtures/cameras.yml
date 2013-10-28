@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cam_name: MyString
+  cam_description: MyText
+  cam_pictures: MyText
+  video_id: 
+  review_id: 
+
+two:
+  cam_name: MyString
+  cam_description: MyText
+  cam_pictures: MyText
+  video_id: 
+  review_id: 
