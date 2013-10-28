@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to new_user_path, flash: { message: "Registration Successfull" }
 		else
-			redirect_to :back, flash: { errors: @user.errors.full_messages }
+			redirect_to new_user_path, flash: { errors: @user.errors.full_messages }
 		end
 	end
 	

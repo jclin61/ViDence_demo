@@ -1,4 +1,7 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+<% if flash[:message] %>
+	<p><%= flash[:message] %></p>
+<% end %>
 <%= render 'shared/login' %>
 <%= render 'shared/register' %>
