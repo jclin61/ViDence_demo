@@ -1,4 +1,4 @@
-<%= simple_form_for @user , url: sessions_path do |f| %>
+<%= simple_form_for @user , html: {id: 'login' }, url: sessions_path do |f| %>
 	<%= f.input :username %>
 	<%= f.input :password %>
 	<%= f.button :submit, value: 'Log In' %>

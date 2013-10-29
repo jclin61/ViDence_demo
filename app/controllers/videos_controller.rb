@@ -1,10 +1,30 @@
 class VideosController < ApplicationController
-  def index
-  end
+  	def index
+  		@videos = Video.all
+  	end
 
-  def new
-  end
+  	def new
+ 	 	@video = Video.new
+ 	 end
 
-  def show
-  end
+	def create
+		@video = Video.new(video_params)
+		if @video.save
+			redirect_to new_video_path, flash: { message: "Video Submitted" }
+		else
+			redirect_to new_video_path, flash: { errors: @video.errors.full_messages }
+		end
+	end
+	
+
+ 	def show
+ 	end
+
+
+	private
+
+	def video_params
+		params.require(:video).permit(:title, :description, :link, :location, :rating, :tags, :user_id)
+	end
+
 end

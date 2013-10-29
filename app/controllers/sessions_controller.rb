@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
 	def create
-		user = User.find_by(email: params[:user][:email]).try(:authenticate, params[:user][:password])
+		user = User.find_by(username: params[:user][:username]).try(:authenticate, params[:user][:password])
 		if user === false || user.nil?
-			redirect_to root_path, flash: { message: "Email/password not correct" }
+			redirect_to videos_path, flash: { message: "Email/password not correct" }
 		else
 			sign_in(user)
-			redirect_to photos_path
+			redirect_to videos_path, flash: { message: "You are now signed in" }
 		end
 	end
 

@@ -3,3 +3,6 @@
 <% if flash[:message] %>
 	<p><%= flash[:message] %></p>
 <% end %>
+<%= render 'shared/login', :@user => User.new  %>
+<%= link_to 'Log out', session_path(current_user), method: "delete" %>
+<%= render 'shared/videos' %>

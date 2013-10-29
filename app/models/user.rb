@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 	has_many :comments, as: :association
 
 	EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
-	validates :username, presence: true, length: {in: 2..20},
-						uniqueness: { case_sensitive: false }
+	validates :username, presence: true, length: {in: 2..20}
+						
 	validates :first_name, presence: true, length: { in: 2..20 }
 	validates :last_name, presence: true, length: { in: 2..20 }
 	validates :email, presence: true, 

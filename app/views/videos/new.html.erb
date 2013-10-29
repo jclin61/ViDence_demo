@@ -1,2 +1,22 @@
 <h1>Videos#new</h1>
 <p>Find me in app/views/videos/new.html.erb</p>
+<% if flash[:message] %>
+	<p><%= flash[:message] %></p>
+<% end %>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
+
+<%= simple_form_for @video do |f| %>
+	<%= f.input :user_id, as: :hidden, input_html: {value: 
+		session[:user_id]} %>
+	<%= f.input :title %>
+	<%= f.input :description %>
+	<%= f.input :link %>
+	<%= f.input :location %>
+	<%= f.input :rating %>
+	<%= f.input :tags %>
+	<%= f.button :submit %>
+<% end %>
