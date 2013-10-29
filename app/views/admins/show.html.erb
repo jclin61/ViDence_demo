@@ -1,0 +1,18 @@
+<h1>Admins#show</h1>
+<p>Find me in app/views/admins/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @admins.username %>
+</p>
+
+<p>
+  <strong>User level:</strong>
+  <%= @admins.user_level %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
