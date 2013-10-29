@@ -1,0 +1,34 @@
+<% provide(:title, "Dashboard") %>
+<% if signed_in? and current_user.user_level == 9 %>
+	<h1>Manage Users</h1>
+	<%= link_to	"Add User", new_user_path %>
+<% else %>
+	<h1>All Users</h1>
+<% end %>
+<p><%= flash[:success] if flash[:success] %></p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Created at</th>
+			<th>User level</th>
+			<%=raw '<th>Actions</th>' if signed_in? and current_user.user_level == 9 %>
+		</tr>
+	</thead>
+	<tbody>
+		<% User.all.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td><%= link_to user.first_name + " " + user.last_name, user_path(user) %></td>
+				<td><%= user.email %></td>
+				<td><%= user.created_at %></td>
+				<td><%= user.user_level == 9 ? "Admin" : "User" %></td>
+				<% if signed_in? and current_user.user_level == 9 %>
+					<td><%= link_to 'Edit', edit_user_path(user)%> <%= link_to 'Delete', user_path(user), method: "delete", data: { confirm: "Are you sure?" } %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

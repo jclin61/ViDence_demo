@@ -1,0 +1,4 @@
+<h1>Oh Hai <em><%= User.find(params[:id]).username %> </em> </h1>
+<p>Reigstered at: <%= User.find(params[:id]).created_at %></p>
+<p>Name: <%= User.find(params[:id]).first_name %> <%= User.find(params[:id]).last_name %></p>
+<p>Email: <%= User.find(params[:id]).email %></p>
