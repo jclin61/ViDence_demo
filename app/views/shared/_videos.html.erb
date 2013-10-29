@@ -1,0 +1,12 @@
+<h3>Video List</h3>
+<% @videos.each do |video| %>
+	<div class="col-md-3">
+		<h6><%= video.title %></h6>
+		<p><%= video.description %></p>
+		<%= raw(youtube_embed(video.link)) %>
+		<p>Submitted by <%= User.find(video.user_id).username %></p>
+	</div>
+	<div>
+		<%= simple_form_for 
+	</div>
+<% end %>
