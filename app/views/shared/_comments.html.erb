@@ -1,0 +1,18 @@
+<p>Comments</p>
+	<div>
+		<%= simple_form_for ([video, comment]) do |f| %>
+			<%= f.input :name %>
+			<%= f.input :comment %>
+			<%= f.input :user_id, as: :hidden, input_html: {value:	session[:user_id]} %>
+			<%= f.button :submit %>
+		<% end %>
+		<% Comment.where(association_id: video.id).each do |comment| %>
+		<div class="col-md-3">
+			<h6>
+				<%= comment.name %>
+			</h6>
+			<p><%= comment.comment %></p>
+
+		</div>
+		<% end %>
+	</div>

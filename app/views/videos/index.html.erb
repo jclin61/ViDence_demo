@@ -5,4 +5,16 @@
 <% end %>
 <%= render 'shared/login', :@user => User.new  %>
 <%= link_to 'Log out', session_path(current_user), method: "delete" %>
-<%= render 'shared/videos' %>
+
+<h3>Video List</h3>
+<% @videos.each do |video| %>
+	<div class="col-md-3">
+		<h6><%= video.title %></h6>
+		<p><%= video.description %></p>
+		<%= raw(youtube_embed(video.link)) %>
+		<p>Submitted by <%= User.find(video.user_id).username %></p>
+		<p>Video Location: <%= video.location %></p>
+	</div>
+
+	<p><%= link_to 'Comments', video %></p>
+<% end %>

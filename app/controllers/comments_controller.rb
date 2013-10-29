@@ -1,14 +1,16 @@
 class CommentsController < ApplicationController
 	def new
- 	 	@comment = Comment.new
+		@video = Video.find(params[:video_id])
+ 	 	@comment = @video.comments.new
  	end
 
 	def create
-		@comment = Comment.new(video_params)
+		@video = Video.find(params[:video_id])
+		@comment = @video.comments.new(comment_params)
 		if @comment.save
-			redirect_to new_video_path, flash: { message: "Video Submitted" }
+			redirect_to videos_path, flash: { message: "Comment added" }
 		else
-			redirect_to new_video_path, flash: { errors: @comment.errors.full_messages }
+			redirect_to videos_path, flash: { errors: @comment.errors.full_messages }
 		end
 	end
 	
@@ -19,8 +21,8 @@ class CommentsController < ApplicationController
 
 	private
 
-	def video_params
-		params.require(:comment).permit(:name, :comment, :user_id)
+	def comment_params
+		params.require(:comment).permit(:name, :comment, :user_id, :association_id, :association)
 	end
 
 end
