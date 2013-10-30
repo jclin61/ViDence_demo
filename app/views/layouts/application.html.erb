@@ -11,8 +11,24 @@
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<h4 id="title" class="pull-left"><strong>VIDence</strong></h4>
-	<button type="text" class="btn btn-default pull-right">Sign In</button>
+	<h4 id="title" class="pull-left"><strong>VIDence : </strong>Your Cloud Witness</h4>
+	<button id="add_vid" type="text" class="btn btn-default pull-right"><%= link_to 'Add Video', new_video_path %></button>
+
+	<% if signed_in? %>
+		<p class="pull-right"><%= link_to 'Log out', session_path(current_user), method: "delete" %></p>
+		<p class="pull-right"><%= link_to 'My Profile', "/users/#{session[:user_id]}/" %></p>
+
+		<% if current_user.user_level == 9 %>
+			<p class="pull-right"><%= link_to 'Admin Page', users_path %></p>
+		<% end %>
+
+	<% else %>
+
+		<h5 class="pull-right"><%= link_to 'Sign In', new_user_path %></h5>	
+
+	<% end %>
+	
+
 </nav>
 
 <div class="container">
