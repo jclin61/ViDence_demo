@@ -3,16 +3,21 @@
 <head>
   <title>Dashcam</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<h4 id="title" class="pull-left"><strong>VIDence</strong></h4>
+	<button type="text" class="btn btn-default pull-right">Sign In</button>
+</nav>
 
 <div class="container">
 
 <%= yield %>
-
 
 </div>
 

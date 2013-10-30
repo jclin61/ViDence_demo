@@ -1,5 +1,6 @@
 // Google Map Function using gmap3   
-$(document).ready(function(){
+    // page change to load google map api + page load 
+    $(document).on('page:change ready', function(){
         register_map()
         video_map()
         // note: autocomplete require on / off function so at least jQuery 1.7
@@ -63,4 +64,5 @@ $(document).ready(function(){
 		});
 		}
 
-});
+    });
+

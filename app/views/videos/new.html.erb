@@ -15,7 +15,9 @@
 	<%= f.input :description %>
 	<%= f.file_field :video %>
 	<%= f.input :link, label: "or Youtube link" %>
-	<%= f.input :location %>
+	<%= f.input :location, input_html: {id: 'address'}, label: 'Footage Location' %>
+	<div id="reg_map" class="gmap3">
+	</div>
 	<%= f.input :rating %>
 	<%= f.input :tags %>
 	<%= f.button :submit %>
