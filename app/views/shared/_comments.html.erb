@@ -1,7 +1,7 @@
 <p>Comments</p>
 	<div>
 		<%= simple_form_for ([video, comment]) do |f| %>
-			<%= f.input :name %>
+			<%= f.input :name, input_html:{value: current_user.username}, label: 'Username' %>
 			<%= f.input :comment %>
 			<%= f.input :user_id, as: :hidden, input_html: {value:	session[:user_id]} %>
 			<%= f.button :submit %>
@@ -12,6 +12,9 @@
 				<%= comment.name %>
 			</h6>
 			<p><%= comment.comment %></p>
+			<% if current_user.id == comment.user_id %>
+			<p><%= link_to 'Delete', "/videos/#{params[:video_id]}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' } %></p>
+			<% end %>
 
 		</div>
 		<% end %>

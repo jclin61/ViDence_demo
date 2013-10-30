@@ -2,10 +2,9 @@
 <% if signed_in? and current_user.user_level == 9 %>
 	<h1>Manage Users</h1>
 	<%= link_to	"Add User", new_user_path %>
-<% else %>
-	<h1>All Users</h1>
-<% end %>
+
 <p><%= flash[:success] if flash[:success] %></p>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -32,3 +31,7 @@
 		<% end %>
 	</tbody>
 </table>
+<% else %>
+	<h1>Umm....yea...How did you get here?</h1>
+	<%= link_to "Go Back", root_path %>
+<% end %>

@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
 
 	before_create :check_user
 
+	
+
 	private
 
 	def check_user

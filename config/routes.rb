@@ -1,4 +1,7 @@
 Dashcam::Application.routes.draw do
+  get "/users/:id/change_password", to: 'users#change_password'
+
+
   resources :sessions
   resources :users
   resources :videos do

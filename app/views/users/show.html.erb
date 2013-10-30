@@ -1,4 +1,8 @@
-<h1>Oh Hai <em><%= User.find(params[:id]).username %> </em> </h1>
+<h1><%= User.find(params[:id]).username %> </h1>
 <p>Reigstered at: <%= User.find(params[:id]).created_at %></p>
-<p>Name: <%= User.find(params[:id]).first_name %> <%= User.find(params[:id]).last_name %></p>
+<p>Name: <%= User.find(params[:id]).first_name + " " + User.find(params[:id]).last_name %></p>
 <p>Email: <%= User.find(params[:id]).email %></p>
+<% if User.find(params[:id]) == current_user || current_user.user_level == 9 %>
+<p><%= link_to 'Edit Profile', edit_user_path %></p>
+<% end %>
+<p>Your Videos</p>

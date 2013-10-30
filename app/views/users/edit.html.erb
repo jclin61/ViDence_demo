@@ -1,1 +1,19 @@
-test
+<% if flash[:message] %>
+	<p><%= flash[:message] %></p>
+<% end %>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
+
+<%= simple_form_for @user do |f| %>
+	<%= f.input :username %>
+	<%= f.input :email %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :location %>
+	<%= f.button :submit, value: 'Update' %>
+<% end %>
+<%=link_to "Change Password Here", "/users/#{params[:id]}/change_password" %>
+
