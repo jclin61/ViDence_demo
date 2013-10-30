@@ -159,7 +159,7 @@ DEPENDENCIES
   debugger
   hirb
   jbuilder (~> 1.2)
-  jquery-rails
+  jquery-rails (~> 3.0.4)
   jquery-ui-rails
   meta_request
   pg

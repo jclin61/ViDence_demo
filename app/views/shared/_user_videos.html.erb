@@ -1,6 +1,7 @@
 <% Video.where(user_id: User.find(params[:id])).each do |video| %>
 	<div class="col-md-3">
 		<h6><%= video.title %></h6>
+		<p><%= video.location %></p>
 		<% if video.link.empty? == false %>
 			<%= raw(youtube_embed(video.link)) %>
 		<% end %>
@@ -13,5 +14,8 @@
 		<% end %>
 		<p><%= video.description %></p>
 		<p><%= link_to 'Comments', video %></p>
+		<input type='hidden' class= 'vid_loc' value='<%= video.location%>'>
+		<div class='vid_map'>
+		</div>
 	</div>
 <% end %>

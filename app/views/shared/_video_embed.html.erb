@@ -1,4 +1,5 @@
 		<h6><%= video.title %></h6>
+		<p><%= video.location %></p>
 		<% if video.link.empty? == false %>
 			<%= raw(youtube_embed(video.link)) %>
 		<% end %>
@@ -10,3 +11,4 @@
 			</video>
 		<% end %>
 		<p><%= video.description %></p>
+

@@ -7,7 +7,7 @@
 	<% if User.find(params[:id]) == current_user || current_user.user_level == 9 %>
 	<p><%= link_to 'Edit Profile', edit_user_path %></p>
 	<% end %>
-	Location: <%= page_user_id.location %>
+	User Location: <%= page_user_id.location %>
 
 	<h4>Video List</h4>
 	<%= render 'shared/user_videos' %>

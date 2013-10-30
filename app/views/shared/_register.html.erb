@@ -5,6 +5,8 @@
 	<%= f.input :password_confirmation %>
 	<%= f.input :first_name %>
 	<%= f.input :last_name %>
-	<%= f.input :location %>
+	<%= f.input :location, input_html: {id: 'address'}, label: 'City Location' %>
+	<div id="reg_map" class="gmap3">
+	</div>
 	<%= f.button :submit, value: 'Register' %>
 <% end %>
