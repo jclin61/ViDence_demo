@@ -25,6 +25,7 @@
 		<h6><%= video.title %></h6>
 		<p><%= video.description %></p>
 		<%= raw(youtube_embed(video.link)) %>
+		<%= video_tag video.video_url.to_s %>
 		<p>Submitted by <%= User.find(video.user_id).username %></p>
 		<p>Video Location: <%= video.location %></p>
 	</div>

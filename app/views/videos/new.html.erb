@@ -8,12 +8,13 @@
 		<p><%= error %></p>
 	<% end %>
 <% end %>
-
-<%= simple_form_for @video do |f| %>
+<!-- :html=> {:multipart => true} to allow file submission -->
+<%= simple_form_for @video, :html => {:multipart => true} do |f| %>
 	<%= f.input :user_id, as: :hidden, input_html: {value: session[:user_id]} %>
 	<%= f.input :title %>
 	<%= f.input :description %>
 	<%= f.input :link %>
+	<%= f.file_field :video %>
 	<%= f.input :location %>
 	<%= f.input :rating %>
 	<%= f.input :tags %>
