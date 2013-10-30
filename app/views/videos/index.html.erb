@@ -3,18 +3,23 @@
 <% if flash[:message] %>
 	<p><%= flash[:message] %></p>
 <% end %>
+
 <% if !signed_in? %>
-<%= render 'shared/login', :@user => User.new  %>
-<span> or </span>
-<%= link_to 'Register', new_user_path %>
+	<%= render 'shared/login', :@user => User.new  %>
+	<span> or </span>
+	<%= link_to 'Register', new_user_path %>
 <% end %>
+
 <% if signed_in? %>
-<%= link_to 'Log out', session_path(current_user), method: "delete" %>
-<p><%= link_to 'My Profile', "/users/#{session[:user_id]}/" %></p>
-<% if current_user.user_level == 9 %>
-<p><%= link_to 'Admin Page', users_path %></p>
+	<%= link_to 'Log out', session_path(current_user), method: "delete" %>
+	<p><%= link_to 'My Profile', "/users/#{session[:user_id]}/" %></p>
+
+	<% if current_user.user_level == 9 %>
+		<p><%= link_to 'Admin Page', users_path %></p>
+	<% end %>
+
 <% end %>
-<% end %>
+
 <h3><%= link_to 'Add New Video', new_video_path %></h3>
 
 
@@ -23,12 +28,27 @@
 <% @videos.each do |video| %>
 	<div class="col-md-3">
 		<h6><%= video.title %></h6>
+
+		<% if video.link.empty? == false %>
+			<%= raw(youtube_embed(video.link)) %>
+		<% end %>
+
+		<% if video.video_url !=nil %>
+			<video width="515" height="290" controls>
+			<source src ="<%= video.video_url %>" type="video/mp4">
+			Your Browser Does Not Suppoert Video Tag
+			</video>
+		<% end %>
+
 		<p><%= video.description %></p>
-		<%= raw(youtube_embed(video.link)) %>
-		<%= video_tag video.video_url.to_s %>
-		<p>Submitted by <%= User.find(video.user_id).username %></p>
+
+		<p>Submitted by 
+			<% if signed_in? %>
+			<%= link_to User.find(video.user_id).username, "/users/#{video.user_id}" %></p>
+			<% else %>
+			<%= User.find(video.user_id).username %>
+			<% end %>
 		<p>Video Location: <%= video.location %></p>
 	</div>
-
 	<p><%= link_to 'Comments', video %></p>
 <% end %>

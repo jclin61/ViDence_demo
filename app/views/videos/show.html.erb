@@ -1,8 +1,10 @@
 <h1>Videos#show</h1>
 <p>Find me in app/views/videos/show.html.erb</p>
-<%= Video.find(params[:id]).title %>
-<%= Video.find(params[:id]).description %></p>
-<%= raw(youtube_embed(Video.find(params[:id]).link)) %>
-<p>Submitted by <%= User.find(Video.find(params[:id]).user_id).username %></p>
+<% video = Video.find(params[:id]) %>
+
+
+<%= render 'shared/video_embed', :video => Video.find(params[:id]) %>
+
+<p>Submitted by <%= User.find(video.user_id).username %></p>
 
 <%= render 'shared/comments', :comment => Video.find(params[:id]).comments.new, :video => Video.find(params[:id]) %>

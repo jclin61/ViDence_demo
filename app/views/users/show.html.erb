@@ -1,8 +1,21 @@
-<h1><%= User.find(params[:id]).username %> </h1>
-<p>Reigstered at: <%= User.find(params[:id]).created_at %></p>
-<p>Name: <%= User.find(params[:id]).first_name + " " + User.find(params[:id]).last_name %></p>
-<p>Email: <%= User.find(params[:id]).email %></p>
-<% if User.find(params[:id]) == current_user || current_user.user_level == 9 %>
-<p><%= link_to 'Edit Profile', edit_user_path %></p>
+<% if signed_in? %>
+	<% page_user_id = User.find(params[:id]) %>
+	<h1><%= User.find(params[:id]).username %> </h1>
+	<p>Reigstered at: <%= User.find(params[:id]).created_at %></p>
+	<p>Name: <%= User.find(params[:id]).first_name + " " + User.find(params[:id]).last_name %></p>
+	<p>Email: <%= User.find(params[:id]).email %></p>
+	<% if User.find(params[:id]) == current_user || current_user.user_level == 9 %>
+	<p><%= link_to 'Edit Profile', edit_user_path %></p>
+	<% end %>
+	Location: <%= page_user_id.location %>
+
+	<h4>Video List</h4>
+	<%= render 'shared/user_videos' %>
+<% else %>
+	<h1>Umm....yea...Looking for Another User?</h1>
+	<%= link_to "Sign In", new_user_path %>
+	<%= link_to "Go Back", root_path %>
 <% end %>
-<p>Your Videos</p>
+
+
+

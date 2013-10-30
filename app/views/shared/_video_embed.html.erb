@@ -1,0 +1,12 @@
+		<h6><%= video.title %></h6>
+		<% if video.link.empty? == false %>
+			<%= raw(youtube_embed(video.link)) %>
+		<% end %>
+
+		<% if video.video_url !=nil %>
+			<video width="515" height="290" controls>
+			<source src ="<%= video.video_url %>" type="video/mp4">
+			Your Browser Does Not Suppoert Video Tag
+			</video>
+		<% end %>
+		<p><%= video.description %></p>

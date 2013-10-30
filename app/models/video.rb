@@ -6,4 +6,9 @@ class Video < ActiveRecord::Base
   belongs_to :camera
   has_many :comments, as: :association
   mount_uploader :video, VideoUploader
+
+
+
+  validates :title, :description, :location, presence: true
+  #needs validation for :video or :link
 end
