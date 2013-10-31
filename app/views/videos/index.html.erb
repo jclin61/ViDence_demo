@@ -1,62 +1,82 @@
+<% provide(:title, "ViDence: Video List") %>
 <% if flash[:message] %>
 	<p class="alert alert-success"><%= flash[:message] %></p>
 <% end %>
-<% @videos.each do |video| %>
-<div class="video_list row">
-		<div class="col-md-10">
-			<h3><%= link_to video.title, video %></h3>
-
-			<% if video.link.empty? == false %>
-				<div class="videowrapper">
-				<%= raw(youtube_embed(video.link)) %>
-				</div>
-			<% end %>
-
-			<% if video.video_url !=nil %>
-				<div class="videowrapper">
-				<video width="560" height="315" controls>
-				<source src ="<%= video.video_url %>" type="video/mp4">
-				Your Browser Does Not Suppoert Video Tag
-				</video>
-				</div>
-			<% end %>
-			<div class="info_bar">
-				<table class="table table-condensed">
-					<tr>
-						<td>
-							<p class="index_username"><% if signed_in? %>
-							<%= link_to User.find(video.user_id).username, "/users/#{video.user_id}" %>
-							<% else %>
-							<%= User.find(video.user_id).username %>
-							<% end %>
-							</p>
-						</td>
-						<td>
-							<p>On <em><%= video.created_at.strftime("%D") %></em></p>
-						</td>
-						<td class="video_index_comment">
-							<%= link_to 'Comments', video %>
-							<% comment_number = Comment.where(association_id: video.id).count %>
-							<% if comment_number > 0 %>
-							   <span class="badge"><%= comment_number %></span>
-							<% end %>
-						</td>
-						<td>
-							<button type="button" class="video_index_comment_button btn btn-default btn-xs">
-							  <span class="glyphicon glyphicon-chevron-down"></span>
-							</button>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div class="video_index_description">
-				<p class="footage_loc">Footage Location: <%= video.location %></p>
-				<p><em><%= video.description %></em></p>
-
-			</div>
+<div class="row">
+	<div class="col-md-2 col-md-push-9 side_bar_request">
+		<div class="col-md-12 col-xs-6 test">
+			test
 		</div>
-		
-</div>
-<hr>
-	
+		<div class="col-md-12 test">
+			test
+		</div>
+		<div class="col-md-12 col-xs-6 test">
+			test
+		</div>
+		<div class="col-md-12 test">
+			test
+		</div>
+		<div class="col-md-12 col-xs-6 test">
+			test
+		</div>
+	</div>
+	<div class="col-md-8 col-md-pull-2">
+		<% @videos.each do |video| %>
+		<div class="row video_list">
+			<div class="col-md-12">
+				<h3><%= link_to video.title, video %></h3>
+
+				<% if video.link.empty? == false %>
+					<div class="videowrapper">
+					<%= raw(youtube_embed(video.link)) %>
+					</div>
+				<% end %>
+
+				<% if video.video_url !=nil %>
+					<div class="videowrapper">
+					<video width="560" height="315" controls>
+					<source src ="<%= video.video_url %>" type="video/mp4">
+					Your Browser Does Not Suppoert Video Tag
+					</video>
+					</div>
+				<% end %>
+				<div class="info_bar">
+					<table class="table table-condensed">
+						<tr>
+							<td>
+								<p class="index_username"><% if signed_in? %>
+								<%= link_to User.find(video.user_id).username, "/users/#{video.user_id}" %>
+								<% else %>
+								<%= User.find(video.user_id).username %>
+								<% end %>
+								</p>
+							</td>
+							<td>
+								<p>On <em><%= video.created_at.strftime("%D") %></em></p>
+							</td>
+							<td class="video_index_comment">
+								<%= link_to 'Comments', video %>
+								<% comment_number = Comment.where(association_id: video.id).count %>
+								<% if comment_number > 0 %>
+								   <span class="badge"><%= comment_number %></span>
+								<% end %>
+							</td>
+							<td>
+								<button type="button" class="video_index_comment_button btn btn-default btn-xs">
+								  <span class="glyphicon glyphicon-chevron-down"></span>
+								</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="video_index_description">
+					<p class="footage_loc">Footage Location: <%= video.location %></p>
+					<p><em><%= video.description %></em></p>
+
+				</div>
+			</div>	
+		</div>
+		<hr>	
 <% end %>
+	</div>
+</div>

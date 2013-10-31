@@ -1,24 +1,33 @@
-<h1>Videos#new</h1>
-<p>Find me in app/views/videos/new.html.erb</p>
-<% if flash[:message] %>
-	<p class="alert alert-success"><%= flash[:message] %></p>
-<% end %>
-<% if flash[:errors] %>
-	<% flash[:errors].each do |error| %>
-		<p class="alert alert-danger"><%= error %></p>
+<% provide(:title, "ViDence: Add New Video") %>
+<% if signed_in? %>
+	<% if flash[:message] %>
+		<p class="alert alert-success"><%= flash[:message] %></p>
 	<% end %>
-<% end %>
-<!-- :html=> {:multipart => true} to allow file submission -->
-<%= simple_form_for @video, :html => {:multipart => true} do |f| %>
-	<%= f.input :user_id, as: :hidden, input_html: {value: session[:user_id]} %>
-	<%= f.input :title %>
-	<%= f.input :description %>
-	<%= f.file_field :video %>
-	<%= f.input :link, label: "or Youtube link" %>
-	<%= f.input :location, input_html: {id: 'address'}, label: 'Footage Location' %>
-	<div id="reg_map" class="gmap3">
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+			<p class="alert alert-danger"><%= error %></p>
+		<% end %>
+	<% end %>
+	<!-- :html=> {:multipart => true} to allow file submission -->
+	<%= simple_form_for @video, :html => {:multipart => true} do |f| %>
+		<%= f.input :user_id, as: :hidden, input_html: {value: session[:user_id]} %>
+		<%= f.input :title %>
+		<%= f.input :description %>
+		<%= f.file_field :video %>
+		<%= f.input :link, label: "or Youtube link" %>
+		<%= f.input :location, input_html: {id: 'address'}, label: 'Footage Location' %>
+		<div id="reg_map" class="gmap3">
+		</div>
+		<%= f.input :rating %>
+		<%= f.input :tags %>
+		<%= f.button :submit, class: "btn btn-primary" %>
+	<% end %>
+<% else %>
+	<h3>Sign In / Register to Add New Video on <span class="brand">ViDence</span></h3>
+	<div class="not_sign_in_login pull-left">
+		<%= render 'shared/login', :@user=> User.new %>
 	</div>
-	<%= f.input :rating %>
-	<%= f.input :tags %>
-	<%= f.button :submit %>
+	<div class="not_signed_in_register pull-right">
+		<%= render 'shared/register', :@user => User.new %>
+	</div>
 <% end %>

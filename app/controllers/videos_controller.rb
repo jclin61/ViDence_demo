@@ -16,6 +16,9 @@ class VideosController < ApplicationController
 		end
 	end
 	
+	def welcome
+
+	end
 
  	def show
  	end

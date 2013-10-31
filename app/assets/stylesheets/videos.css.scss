@@ -10,7 +10,7 @@ video {
 	margin-left:10px;
 }
 #add_vid{
-	margin: 7px 5px 0px 0px;
+	margin: 7px 2px 0px 0px;
 	font-weight: bold;
 }
 nav p{
@@ -60,7 +60,7 @@ nav p{
 	float:right;
 }
 .video_list{
-	background-color: #eeeff7;
+	background-color: #EEEEEE;
 	box-shadow: 0 0 30px black;
 }
 .comment{
@@ -69,6 +69,62 @@ nav p{
 .sign_in_comment{
 	float:right;
 }
-.glyphicon-home{
+.glyphicon-film{
 	color: lightgrey;
 }
+.side_bar_request{
+	border: 1px solid black;
+/*	height:800px;
+	width: 200px;*/
+}
+.test{
+	border: 1px solid black;
+}
+#menu{
+	color:lightgrey;
+	padding:5px 10px 5px 10px;
+	margin-right: 3px;
+
+}
+.not_signed_in_register{
+
+}
+
+
+/*   This Section is for Welcome Page */
+#welcome_home{
+	background: url(city.jpg) 50% 0 no-repeat fixed;
+	height:1000px;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1920px;
+	position:relative;
+}
+	#welcome_home article{
+		font-size:50px;
+		color: lightgrey;
+		height: 458px;
+		position: absolute;
+		text-align:center;
+		top:150px;
+		width:100%;	
+	}
+#welcome_why{
+	background: url(grass.jpg) 50% 0 no-repeat fixed;
+	height:1000px;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1920px;
+	position: relative;
+	-webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
+	box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+	#welcome_why article{
+		font-size: 50px;
+		color: lightgrey;
+		height: 458px; 
+		position: absolute; 
+		text-align: center; 
+		top: 150px; 
+		width: 100%; 
+	}

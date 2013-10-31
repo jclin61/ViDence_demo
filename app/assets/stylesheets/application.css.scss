@@ -12,15 +12,27 @@
  *= require_tree .
  */
 body{
-	background-color: #445878;
+	background-color: #FFFFFF
 }
 .navbar{
-	background-color: #1c1d21;
+	border-bottom: 1px #515151;
+	background-color: #515151;
+	opacity: 0.97;
 }
 nav h4{
 	color:#e5e5ed;
+	font-size: 14px;
 }
-nav h4 strong{
-	color:#92cdcf;
+nav h4 strong a{
+	color:#00B4FF; 
+	font-size: 20px;
+}
+nav h4 strong a:hover{
+	color:#84DCFF;
+	text-decoration: none;
+}
+.brand{
+	font-weight:bold;
+	color:#00B4FF;
 }
 
