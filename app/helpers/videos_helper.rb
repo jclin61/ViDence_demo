@@ -8,7 +8,7 @@ module VideosHelper
     youtube_id = $5
   end
 
-  %Q{<iframe title="YouTube video player" width="515" height="290" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+  %Q{<iframe title="YouTube video player" width="560" height="315" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
 end
 
 #youtube_embed('youtu.be/jJrzIdDUfT4')

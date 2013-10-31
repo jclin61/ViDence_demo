@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashcam</title>
+  <title>ViDence</title>
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<h4 id="title" class="pull-left"><strong>VIDence : </strong>Your Cloud Witness</h4>
-	<button id="add_vid" type="text" class="btn btn-default pull-right"><%= link_to 'Add Video', new_video_path %></button>
+	<div class="container">
+	<h4 id="title" class="pull-left"><strong>ViDence : </strong>Your Cloud Witness</h4>
+	<button id="add_vid" type="button" class="btn btn-default pull-right"><%= link_to 'Add Video', new_video_path %></button>
+	<a href="/videos"><p class="pull-right glyphicon glyphicon-home"></p></a>
 
 	<% if signed_in? %>
 		<p class="pull-right"><%= link_to 'Log out', session_path(current_user), method: "delete" %></p>
-		<p class="pull-right"><%= link_to 'My Profile', "/users/#{session[:user_id]}/" %></p>
+		<p class="pull-right"><%= link_to 'My Profile', "/users/#{session[:user_id]}/", class: "add_vid" %></p>
 
 		<% if current_user.user_level == 9 %>
 			<p class="pull-right"><%= link_to 'Admin Page', users_path %></p>
@@ -24,17 +27,15 @@
 
 	<% else %>
 
-		<h5 class="pull-right"><%= link_to 'Sign In', new_user_path %></h5>	
+		<strong><p class="pull-right"><%= link_to 'Sign In', new_user_path %></p></strong>	
 
 	<% end %>
-	
-
+	</div>
 </nav>
-
+<div id="top_space">
+</div>
 <div class="container">
-
 <%= yield %>
-
 </div>
 
 </body>

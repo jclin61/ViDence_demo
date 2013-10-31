@@ -1,5 +1,4 @@
-<h1>Videos#show</h1>
-<p>Find me in app/views/videos/show.html.erb</p>
+<div class="video_list col-md-10">
 <% video = Video.find(params[:id]) %>
 
 
@@ -12,8 +11,10 @@ Submitted by
 	<%= User.find(video.user_id).username %>
 <% end %>
 
-<input type='hidden' class= 'vid_loc' value='<%= video.location%>'>
+<input type='hidden' class= 'vid_loc' value='<%= video.location %>'>
 <div class='vid_map'>
 </div>
+<p><%= video.description %></p>
 
 <%= render 'shared/comments', :comment => Video.find(params[:id]).comments.new, :video => Video.find(params[:id]) %>
+</div>

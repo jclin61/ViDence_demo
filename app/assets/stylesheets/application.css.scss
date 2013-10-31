@@ -11,5 +11,16 @@
  *= require_self
  *= require_tree .
  */
- @import "bootstrap";
+body{
+	background-color: #445878;
+}
+.navbar{
+	background-color: #1c1d21;
+}
+nav h4{
+	color:#e5e5ed;
+}
+nav h4 strong{
+	color:#92cdcf;
+}
 

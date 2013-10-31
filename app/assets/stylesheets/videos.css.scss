@@ -1,5 +1,10 @@
+video {
+	width: 100% !important;
+	height: auto !important;
+}
+
 .container{
-	margin-top: 40px;
+	/*border: 1px solid black;*/
 }
 #title{
 	margin-left:10px;
@@ -8,9 +13,62 @@
 	margin: 7px 5px 0px 0px;
 	font-weight: bold;
 }
-nav h5{
-	padding-right: 15px;
-}
 nav p{
 	margin: 15px 10px;
+}
+#top_space{
+	height:50px;
+}
+.green_message{
+	color: green;
+}
+.index_username{
+	margin-right: 15px;
+	font-weight: bold;
+}
+.info_bar{
+	float:right;
+}
+
+ .vid_map{
+      	width:100%;
+      	height:200px;
+      }
+
+.videowrapper{
+	height:0;
+	position:relative;
+	padding-top: 25px;
+	padding-bottom: 56.25%;
+}
+	.videowrapper iframe{
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
+.video_index_comment{
+	font-weight: bold;
+}
+.video_index_description{
+	color:grey;
+	display:none;
+	clear:both;
+}
+.footage_loc{
+	float:right;
+}
+.video_list{
+	background-color: #eeeff7;
+	box-shadow: 0 0 30px black;
+}
+.comment{
+	border-top: 1px solid lightgrey;
+}
+.sign_in_comment{
+	float:right;
+}
+.glyphicon-home{
+	color: lightgrey;
 }

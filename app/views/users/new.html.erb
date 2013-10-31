@@ -1,13 +1,19 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
 <% if flash[:message] %>
-	<p><%= flash[:message] %></p>
+	<p class="alert alert-success"><%= flash[:message] %></p>
+<% elsif flash[:sign_in_error] %>
+	<p class="alert alert-danger"><%= flash[:sign_in_error] %></p>
 <% end %>
 <% if flash[:errors] %>
 	<% flash[:errors].each do |error| %>
-		<p><%= error %></p>
+		<p class="alert alert-danger"><%= error %></p>
 	<% end %>
 <% end %>
-<%= render 'shared/login' %>
-<%= link_to 'Go Back', :back %>
-<%= render 'shared/register' %>
+<div id="login_registration" class="container">
+	<div class="user_login col-sm-6">
+		<%= render 'shared/login' %>
+		<%= link_to 'Go Back', :back %>
+	</div>
+	<div class="user_register col-sm-6">
+		<%= render 'shared/register' %>
+	</div>
+</div>

@@ -1,9 +1,9 @@
 <% if flash[:message] %>
-	<p><%= flash[:message] %></p>
+	<p class="alert alert-success"><%= flash[:message] %></p>
 <% end %>
 <% if flash[:errors] %>
 	<% flash[:errors].each do |error| %>
-		<p><%= error %></p>
+		<p class="alert alert-danger"><%= error %></p>
 	<% end %>
 <% end %>
 

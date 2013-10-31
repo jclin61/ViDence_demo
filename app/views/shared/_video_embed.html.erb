@@ -1,14 +1,18 @@
-		<h6><%= video.title %></h6>
-		<p><%= video.location %></p>
+		<h4><%= video.title %></h4>
+		<p>From <%= video.location %></p>
 		<% if video.link.empty? == false %>
+		<div class="videowrapper">
 			<%= raw(youtube_embed(video.link)) %>
+		</div>
 		<% end %>
 
 		<% if video.video_url !=nil %>
+		<div class="videowrapper">
 			<video width="515" height="290" controls>
 			<source src ="<%= video.video_url %>" type="video/mp4">
 			Your Browser Does Not Suppoert Video Tag
 			</video>
+		</div>
 		<% end %>
-		<p><%= video.description %></p>
+		
 

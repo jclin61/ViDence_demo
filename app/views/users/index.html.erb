@@ -3,7 +3,7 @@
 	<h1>Manage Users</h1>
 	<%= link_to	"Add User", new_user_path %>
 
-<p><%= flash[:success] if flash[:success] %></p>
+<p class="alert alert-success"><%= flash[:success] if flash[:success] %></p>
 
 <table class="table">
 	<thead>
