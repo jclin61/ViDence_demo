@@ -7,6 +7,9 @@ $(document).on('page:change ready', function(){
 	auto_complete_allmap()
 	locate_tool_tip()
 
+	// This needs to be repaired. bootstrap interferes with position
+	// fixed_side_bar()
+
 		function video_map(){
 		$(".vid_map").gmap3({
 			marker:{
@@ -218,5 +221,19 @@ $(document).on('page:change ready', function(){
 			    $(function() {
 			    $("#locate_all_address" ).tooltip();
 			  });
+        }
+
+        function fixed_side_bar(){
+		  jQuery(function($) {
+		    function fixDiv() {
+		      var $cache = $('.side_bar'); 
+		      if ($(window).scrollTop() > 100) 
+		        $cache.css({'position': 'fixed', 'top': '10px'}); 
+		      else
+		        $cache.css({'position': 'relative', 'top': 'auto'});
+		    }
+		    $(window).scroll(fixDiv);
+		    fixDiv();
+});
         }
 });

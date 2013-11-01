@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_to root_path, flash: { message: "Registration Successful, Please Login" }
+			redirect_to new_user_path, flash: { message: "Registration Successful, Please Login" }
 		else
 			redirect_to new_user_path, flash: { errors: @user.errors.full_messages }
 		end

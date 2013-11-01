@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :videos
 	has_many :reviews
+	has_many :requests
 	has_many :comments, as: :association
 
 	EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i

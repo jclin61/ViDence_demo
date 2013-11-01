@@ -1,6 +1,6 @@
 <% Video.where(user_id: User.find(params[:id])).each do |video| %>
-	<div class="col-md-10">
-		<h6><%= link_to video.title, video %></h6>
+	<div class="col-md-10 member_video">
+		<h4 class="video_title"><%= link_to video.title, video %></h4>
 		<p><%= video.location %></p>
 		<% if video.link.empty? == false %>
 			<%= raw(youtube_embed(video.link)) %>

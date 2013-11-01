@@ -1,11 +1,15 @@
 class VideosController < ApplicationController
   	def index
-  		@videos = Video.all
+  		if params[:search] != nil
+  		@videos = Video.search(params[:search].downcase)
+	  	else
+  		@videos = Video.all.order('created_at DESC')
+	  	end
   	end
 
   	def new
  	 	@video = Video.new
- 	 end
+ 	end
 
 	def create
 		@video = Video.new(video_params)

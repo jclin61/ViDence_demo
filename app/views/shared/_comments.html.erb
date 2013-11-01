@@ -1,9 +1,10 @@
 	<div>
 		<% if signed_in? %>
 			<%= simple_form_for ([video, comment]) do |f| %>
-				<%= f.input :name, as: :hidden, input_html:{value: current_user.username} %>
-				<%= f.input :comment %>
+				<%= f.input :name, as: :hidden, input_html:{ value: current_user.username} %>
+				<%= f.input :comment, input_html:{class: 'form-control'} %>
 				<%= f.input :user_id, as: :hidden, input_html: {value:	session[:user_id]} %>
+				<br>
 				<%= f.button :submit %>
 			<% end %>
 		<% else %>
@@ -14,9 +15,9 @@
 
 		<% Comment.where(association_id: video.id).each do |comment| %>
 		<div class="comment col-md-12">
-			<h5>
+			<h4 class="video_comment_name">
 				<%= comment.name %>
-			</h5>
+			</h4>
 			<p><%= comment.comment %></p>
 			<% if signed_in? %>
 				<% if current_user.id == comment.user_id %>

@@ -15,7 +15,8 @@
 	<input type='hidden' class= 'vid_loc' value='<%= video.location %>'>
 	<div class='vid_map'>
 	</div>
-	<p><%= video.description %></p>
+
+	<p><strong>Description</strong>: <br><%= video.description %></p>
 
 	<%= render 'shared/comments', :comment => Video.find(params[:id]).comments.new, :video => Video.find(params[:id]) %>
 </div>

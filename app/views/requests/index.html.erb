@@ -1,0 +1,48 @@
+<h1>Footage requests</h1>
+<% if signed_in? %>
+<table class="table table-striped table-hover">
+  <thead class="thead">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Contact</th>
+      <th>Location</th>
+      <th>Posted Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.order("created_at DESC").each do |request| %>
+      <tr class="trow">
+        <td><%= request.title %></td>
+        <td><%= request.description %></td>
+        <td><%= request.contact %></td>
+        <td><%= request.location %></td>
+        <td><%= request.created_at %></td>
+        <td><%= link_to 'Show', request %></td>
+        
+          <% if current_user.id == request.user_id || current_user.user_level == 9%>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Delete', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request', new_request_path %>
+<% else %>
+  <h4>Sign In / Register to Access This Page</h4>
+  <div class="not_sign_in_login pull-left">
+    <%= render 'shared/login', :@user=> User.new %>
+  </div>
+  <div class="not_signed_in_register pull-right">
+    <%= render 'shared/register', :@user => User.new %>
+  </div>
+<% end %>
+

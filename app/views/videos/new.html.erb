@@ -9,25 +9,41 @@
 		<% end %>
 	<% end %>
 	<!-- :html=> {:multipart => true} to allow file submission -->
-	<%= simple_form_for @video, :html => {:multipart => true} do |f| %>
-		<%= f.input :user_id, as: :hidden, input_html: {value: session[:user_id]} %>
-		<%= f.input :title %>
-		<%= f.input :description %>
-		<%= f.file_field :video %>
-		<%= f.input :link, label: "or Youtube link" %>
-		<%= f.input :location, input_html: {id: 'address'}, label: 'Footage Location' %>
-		<div id="reg_map" class="gmap3">
-		</div>
-		<%= f.input :rating %>
-		<%= f.input :tags %>
-		<%= f.button :submit, class: "btn btn-primary" %>
-	<% end %>
+	<div class="video_add col-md-6 col-md-push-2">
+		<h3> Add Video </h3>
+		<%= simple_form_for @video, :html => {:multipart => true} do |f| %>
+			<%= f.input :user_id, as: :hidden, input_html: {value: session[:user_id]} %>
+			<%= f.input :title, input_html:{class:'form-control'} %>
+			<%= f.input :description, input_html:{class:'form-control'} %>
+			<%= f.input :link, label: "Youtube link", input_html:{class:'form-control'} %>
+			<h5>or Upload</h5>
+			<%= f.file_field :video, input_html:{class:'form-control'}%>
+			<%= f.input :location, input_html: {id: 'address', class:'form-control'}, label: 'Footage Location' %>
+			<div id="reg_map" class="gmap3">
+			</div>
+	<!-- Additional form disabled -->
+		<!-- 	<%= f.input :rating %> -->
+		<!-- 	<%= f.input :tags %> -->
+	<!-- Additoinal form end -->
+
+			<%= f.button :submit, class: "btn btn-primary" %>
+		<% end %>
+		<br>
+		<button class='btn btn-default'><%= link_to 'Back To Videos', videos_path %></button>
+	</div>
 <% else %>
 	<h3>Sign In / Register to Add New Video on <span class="brand">ViDence</span></h3>
-	<div class="not_sign_in_login pull-left">
-		<%= render 'shared/login', :@user=> User.new %>
+	<div id="login_registration" class="container">
+	<div class="user_register col-sm-6">
+		<%= render 'shared/register', :@user=> User.new %>
 	</div>
-	<div class="not_signed_in_register pull-right">
-		<%= render 'shared/register', :@user => User.new %>
+	<div class="col-sm-2">
+		<h1>OR</h1>
 	</div>
+	<div class="user_login col-sm-4">
+		<%= render 'shared/login', :@user => User.new %>
+		<br>
+		<button class='btn btn-default'><%= link_to 'Go Back', :back %></button>
+	</div>
+</div>
 <% end %>

@@ -1,12 +1,13 @@
 <%= simple_form_for @user do |f| %>
-	<%= f.input :username %>
-	<%= f.input :email %>
-	<%= f.input :password %>
-	<%= f.input :password_confirmation %>
-	<%= f.input :first_name %>
-	<%= f.input :last_name %>
-	<%= f.input :location, input_html: {id: 'address'}, label: 'City Location' %>
+	<%= f.input :username, input_html:{class:'form-control'} %>
+	<%= f.input :email, input_html:{class:'form-control'} %>
+	<%= f.input :password, input_html:{class:'form-control'} %>
+	<%= f.input :password_confirmation, input_html:{class:'form-control'} %>
+	<%= f.input :first_name, input_html:{class:'form-control'} %>
+	<%= f.input :last_name, input_html:{class:'form-control'} %>
+	<%= f.input :location, input_html: {id: 'address', class:'form-control'}, label: 'City Location' %>
 	<div id="reg_map" class="gmap3">
 	</div>
-	<%= f.button :submit, value: 'Register' %>
+	<br>
+	<%= f.button :submit, class:'btn-primary', value: 'Register' %>
 <% end %>

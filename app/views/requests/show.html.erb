@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<div class="col-md-6 col-md-push-3 request_info">
+	<br>
+	
+	<!-- <p>
+	  <strong>Name:</strong>
+	  <%= @request.user_id %>
+	</p> -->
+	<p>
+	  <strong>Title:</strong>
+	  <%= @request.title %>
+	</p>
+
+	<p>
+	  <strong>Description:</strong>
+	  <%= @request.description %>
+	</p>
+
+	<p>
+	  <strong>Contact:</strong>
+	  <%= @request.contact %>
+	</p>
+
+	<p>
+	  <strong>Location:</strong>
+	  <%= @request.location %>
+	</p>
+	
+	<% if current_user.id == @request.user_id || current_user.user_level == 9%>
+		<%= link_to 'Edit', edit_request_path(@request) %> |
+	<% end %>
+
+	<%= link_to 'Back', requests_path %>
+</div>

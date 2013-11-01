@@ -11,4 +11,18 @@ class Video < ActiveRecord::Base
 
   validates :title, :description, :location, presence: true
   #needs validation for :video or :link
+
+  def self.search(search)
+  		
+
+  		# where('location LIKE? || title LIKE?', "%#{search}%", "%#{search}%").all
+  		where('title LIKE ?', "%#{search}%").order("created_at DESC")
+
+  		# if search
+
+  		# 	find(:all, :conditions => ['title Like :search || description Like :search || location Like :search', {:search =>"%#{search}%"}])
+  		# else
+  		# 	find(:all)
+  		# end
+  end
 end

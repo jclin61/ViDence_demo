@@ -3,24 +3,36 @@
 	<p class="alert alert-success"><%= flash[:message] %></p>
 <% end %>
 <div class="row">
-	<div class="col-md-2 col-md-push-9 side_bar_request">
-		<div class="col-md-12 col-xs-6 test">
-			test
+	<div class="col-md-3 col-sm-12 col-md-push-9 side_bar">
+		<h4><span class="glyphicon glyphicon-list-alt"></span>Video Requests</h4>
+		<% Request.all.order("created_at DESC").limit(6).each do |request| %>
+			<div class="col-md-12 col-xs-6 side_bar_request">
+			<h5><%= request.title %></h5>
+			<p> <%= request.location %></p>
+			<p class="pull-right"><%= request.created_at.strftime("%D") %></p>
+			<p class="pull-left"><span class="glyphicon glyphicon-info-sign"></span><%= link_to "More", request %></p>
+			</div>
+		<% end %>
+
+		<div class="col-md-12 inner_box">
+
 		</div>
-		<div class="col-md-12 test">
-			test
-		</div>
-		<div class="col-md-12 col-xs-6 test">
-			test
-		</div>
-		<div class="col-md-12 test">
-			test
-		</div>
-		<div class="col-md-12 col-xs-6 test">
-			test
-		</div>
+		<p class="all_request">See All <span class="badge"><%= Request.all.count %></span> <%= link_to 'Requests', requests_path %></p>
 	</div>
-	<div class="col-md-8 col-md-pull-2">
+	<div class="video_list_box col-md-8 col-md-pull-2">
+		<!-- Search Form -->
+
+		<div class="search_form">
+			<%= form_tag videos_path, method: :get, role: "form" do %>
+				<div class="form-group">
+					<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Video Name" %>
+					<%= submit_tag "Search", name: nil, class: "btn-default" %>
+				</div>
+			<% end %>
+		</div>
+
+		<!-- Search Form End -->
+
 		<% num = 0 %>
 		<% @videos.each do |video| %>
 		<div class="row video_list">

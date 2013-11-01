@@ -9,12 +9,17 @@
 		<p class="alert alert-danger"><%= error %></p>
 	<% end %>
 <% end %>
+<h2>Login / Register</h2>
 <div id="login_registration" class="container">
-	<div class="user_login col-sm-6">
-		<%= render 'shared/login' %>
-		<%= link_to 'Go Back', :back %>
-	</div>
 	<div class="user_register col-sm-6">
 		<%= render 'shared/register' %>
+	</div>
+	<div class="col-sm-2">
+		<h1>OR</h1>
+	</div>
+	<div class="user_login col-sm-4">
+		<%= render 'shared/login' %>
+		<br>
+		<button class='btn btn-default'><%= link_to 'Go Back', :back %></button>
 	</div>
 </div>
