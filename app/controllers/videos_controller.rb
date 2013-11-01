@@ -20,6 +20,10 @@ class VideosController < ApplicationController
 
 	end
 
+	def map
+
+	end
+	
  	def show
  	end
 

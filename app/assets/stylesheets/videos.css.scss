@@ -29,6 +29,9 @@ nav p{
 .info_bar{
 	float:right;
 }
+.info_bar_table{
+	background-color: #EEEEEE;
+}
 
  .vid_map{
       	width:100%;
@@ -61,7 +64,7 @@ nav p{
 }
 .video_list{
 	background-color: #EEEEEE;
-	box-shadow: 0 0 30px black;
+	box-shadow: 0 0 30px grey;
 }
 .comment{
 	border-top: 1px solid lightgrey;
@@ -69,7 +72,7 @@ nav p{
 .sign_in_comment{
 	float:right;
 }
-.glyphicon-film{
+.glyphicon{
 	color: lightgrey;
 }
 .side_bar_request{
@@ -78,7 +81,7 @@ nav p{
 	width: 200px;*/
 }
 .test{
-	border: 1px solid black;
+	border: 1px solid white;
 }
 #menu{
 	color:lightgrey;
@@ -129,7 +132,7 @@ nav p{
 }
 #welcome_home{
 	top:15px;
-	background: url(welcome/taxi.jpg) 50% 0 no-repeat fixed;
+	background: url(welcome/101.jpg) 50% 0 no-repeat fixed;
 	background-size: cover;
 	height:800px;
 	margin: 0 auto;
@@ -146,8 +149,13 @@ nav p{
 		top:50px;
 		width:100%;	
 	}
+	.welcome_text{
+		background-color: white;
+		opacity:0.6;
+		color:#515151;
+	}
 #welcome_why{
-	background: url(welcome/101.jpg) 50% 0 no-repeat fixed;
+	background: url(welcome/taxi.jpg) 50% 0 no-repeat fixed;
 	background-size: cover;
 	height:1000px;
 	margin: 0 auto;
@@ -164,3 +172,64 @@ nav p{
 		top: 150px; 
 		width: 100%; 
 	}
+	.welcome_text2{
+	background-color: white;
+	opacity:0.7;
+	color:#515151;
+	}
+#welcome_how{
+	background: url(welcome/crash.jpg) 50% 0 no-repeat fixed;
+	background-size: cover;
+	height:1000px;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1920px;
+	position: relative;
+}
+	#welcome_how article{
+		font-size: 50px;
+		color: lightgrey;
+		height: 458px; 
+		position: absolute; 
+		text-align: center; 
+		top: 150px; 
+		width: 100%; 
+	}
+
+
+/*This part is for find all location google map api CSS*/
+#locate_all_input{
+	text-align: center;
+}
+
+  .locate_all_gmap3{
+    margin: 20px auto;
+    border: 1px dashed #C0C0C0;
+    width: auto;
+    height: 500px;
+  }
+  .cluster{
+			color: #FFFFFF;
+			text-align:center;
+			font-family: 'Arial, Helvetica';
+			font-size:11px;
+			font-weight:bold;
+  }
+  .cluster-1{
+    background-image:url(maps/m1.png);
+    line-height:53px;
+			width: 53px;
+			height: 52px;
+  }
+  .cluster-2{
+    background-image:url(maps/m2.png);
+    line-height:53px;
+			width: 56px;
+			height: 55px;
+  }
+  .cluster-3{
+    background-image:url(maps/m3.png);
+    line-height:66px;
+			width: 66px;
+			height: 65px;
+  }

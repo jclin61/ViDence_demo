@@ -21,16 +21,16 @@
 		</button>
 		<div class= "collapse navbar-collapse navHeaderCollapse">
 			<ul class="nav navbar-nav navbar-right">
+				<li class="pull-right"><%= link_to 'Videos', videos_path %></li>
 				<% if signed_in? %>
 				<li class="pull-right"><%= link_to 'Log out', session_path(current_user), method: "delete" %></li>
 				<li class="pull-right"><%= link_to 'My Profile', "/users/#{session[:user_id]}/", class: "add_vid" %></li>
+				<li class="pull-right"><%= link_to 'Map', "/videos/map" %></li>
 
 				<% if current_user.user_level == 9 %>
-					<li class="pull-right"><%= link_to 'Admin Page', users_path %></li>
+					<li class="pull-right"><%= link_to 'Admin', users_path %></li>
 				<% end %>
-
 			<% else %>
-
 				<li class="pull-right"><%= link_to 'Sign In', new_user_path %></li>	
 
 			<% end %>
