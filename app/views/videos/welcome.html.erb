@@ -1,31 +1,52 @@
 <% provide(:title, "Welcome to ViDence") %>
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<h1>Welcome to the MVC advnaced assignment in Rails</h1>
-		<p>We're going to build a cool application using a MVC framework! This application was build with the Coding Dojo folks!</p>
+<div class="jumbotron">
+	<div id="cover">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-3">
+				<h1 id="cover_title">Accident Sucks</h1>
+				<h3 id="cover_subtitle">Finding out What The @%$& Happened Shouldn't Be </h3>
+				<!-- rails button, use method get -->
+				<%= button_to "Sign Up", new_user_path, id: "cover_button", class: "btn btn-warning btn-lg", method: :get %>
+			</div>
+		</div>
 	</div>
+		<div id="cover_summary" class="row">
+			<div class="col-md-4">
+				<h4>Add Your Footage</h4>
+				<p> Upload the accidents you recorded on your dashboard camera
+					and manage them on the cloud.</p>
+			</div>
+			<div class="col-md-4">
+				<h4>Request For Footage</h4>
+				<p>Seek relevant dashboard camera videos that are kindly added by drivers like you.</p>
+			</div>
+			<div class="col-md-4">
+				<h4>Locate Footage</h4>
+				<p>Find the video evidence you need through quick location search.</p>
+			</div>
+		</div>
 </div>
-<div class="row">
-	<div class="col-md-4">
-		<h4>Manage Users</h4>
-		<p>Using this application, you'll learn how to add, remove, and edit users for the application</p>
-	</div>
-	<div class="col-md-4">
-		<h4>Leave messages</h4>
-		<p>Users will be able to leave a message to another user using this application.</p>
-	</div>
-	<div class="col-md-4">
-		<h4>Edit User Information</h4>
-		<p>Admins will be able to edit another user's information (email address, first name, etc).</p>
-	</div>
-</div>
+
 <!-- parralex style landing page to spark interest -->
+<div class="parralex_space">
+	<h3>Scroll to Learn More</h3>
+	<button type="button" id="welcome_arrow" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-down"></span></button>
+</div>
+<!-- The Div below is to close bootstrap container -->
+</div>
 <section id="welcome_home" data-type="background" data-speed="10">
-	<article>I am absolute positioned</article>
+	<article>
+		<div>
+
+		</div>
+		<p>I am absolute positioned</p>
+	</article>
 </section>
 <section id="welcome_why" data-type="background" data-speed="10">
 	<article>Simple Parallax Scroll</article>
 </section>
+<!-- The Div below is to serve as opening Div for the bootstrap container -->
+<div>
 
 
 

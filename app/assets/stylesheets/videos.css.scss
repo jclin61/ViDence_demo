@@ -92,9 +92,46 @@ nav p{
 
 
 /*   This Section is for Welcome Page */
+#cover{
+	background: url(welcome/Cover.png) repeat;
+	background-size: 110%;
+	height:250px;
+}
+	#cover_title{
+		font-weight: bold;
+		margin-top: 50px;
+		color: lightgrey;
+		text-shadow: 3px 2px 2px #515151;
+	}
+	#cover_subtitle{
+		color: #EEEEEE;
+		text-shadow: 3px 2px 2px #515151;
+	}
+	#cover_button{
+		font-size:22px;
+		margin-top: 10px;
+		padding: 5px 10px 5px 10px;
+		color: #EEEEEE;
+	}
+	#cover_summary{
+		margin-top:50px;
+	}
+#welcome_arrow{
+	margin-bottom: 150px;
+	height:50px;
+	width:100px;
+
+}
+.parralex_space{
+	text-align: center;
+	margin-top: 150px;
+	height:300px;
+}
 #welcome_home{
-	background: url(city.jpg) 50% 0 no-repeat fixed;
-	height:1000px;
+	top:15px;
+	background: url(welcome/taxi.jpg) 50% 0 no-repeat fixed;
+	background-size: cover;
+	height:800px;
 	margin: 0 auto;
 	width: 100%;
 	max-width: 1920px;
@@ -106,18 +143,17 @@ nav p{
 		height: 458px;
 		position: absolute;
 		text-align:center;
-		top:150px;
+		top:50px;
 		width:100%;	
 	}
 #welcome_why{
-	background: url(grass.jpg) 50% 0 no-repeat fixed;
+	background: url(welcome/101.jpg) 50% 0 no-repeat fixed;
+	background-size: cover;
 	height:1000px;
 	margin: 0 auto;
 	width: 100%;
 	max-width: 1920px;
 	position: relative;
-	-webkit-box-shadow: 0 0 50px rgba(0,0,0,0.8);
-	box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 	#welcome_why article{
 		font-size: 50px;

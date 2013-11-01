@@ -21,6 +21,7 @@
 		</div>
 	</div>
 	<div class="col-md-8 col-md-pull-2">
+		<% num = 0 %>
 		<% @videos.each do |video| %>
 		<div class="row video_list">
 			<div class="col-md-12">
@@ -62,14 +63,14 @@
 								<% end %>
 							</td>
 							<td>
-								<button type="button" class="video_index_comment_button btn btn-default btn-xs">
+								<button type="button" data-switch="<%= num %>" class="video_index_comment_button btn btn-default btn-xs">
 								  <span class="glyphicon glyphicon-chevron-down"></span>
 								</button>
 							</td>
 						</tr>
 					</table>
 				</div>
-				<div class="video_index_description">
+				<div class="video_index_description  com<%= num %>">
 					<p class="footage_loc">Footage Location: <%= video.location %></p>
 					<p><em><%= video.description %></em></p>
 
@@ -77,6 +78,7 @@
 			</div>	
 		</div>
 		<hr>	
+		<% num += 1 %>
 <% end %>
 	</div>
 </div>

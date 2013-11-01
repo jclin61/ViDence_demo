@@ -2,6 +2,7 @@ $(document).on('page:change ready', function(){
 	video_map()
 	video_index_comment()
 	welcome_page_scroll()
+	scroll_to_position()
 
 		function video_map(){
 		$(".vid_map").gmap3({
@@ -18,8 +19,9 @@ $(document).on('page:change ready', function(){
 
 		function video_index_comment(){
 			$(".video_index_comment_button").click(function(){
-				$(".video_index_description").fadeToggle();
-				$(".video_index_comment_button").toggleClass('btn-danger');
+				var num = $(this).attr('data-switch');
+				$(".com" + num).fadeToggle();
+				$(this).toggleClass('btn-danger');
 			});
 		}
 
@@ -38,6 +40,15 @@ $(document).on('page:change ready', function(){
 				});
 			});
 
+		}
+
+		function scroll_to_position(){
+			$("#welcome_arrow").click(function(){
+				$('html, body').animate({
+					scrollTop: $("#welcome_home").offset().top
+				}, 2000);
+				});
+			
 		}
 
 });

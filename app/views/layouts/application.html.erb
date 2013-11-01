@@ -8,13 +8,11 @@
   <%= csrf_meta_tags %>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
-
-
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
-		<h4 id="title" class="pull-left"><strong><a href="/videos/welcome">ViDence </a></strong>Your Cloud Witness</h4>
+		<h4 id="title" class="pull-left"><strong><a href="/videos/welcome">ViDence </a></strong>Your <span class="glyphicon glyphicon-cloud-upload"></span> Witness</h4>
 		<button id="add_vid" type="button" class="btn btn-default pull-right"><%= link_to 'Add Video', new_video_path %></button>
 		<a href="/videos"><p class="pull-right glyphicon glyphicon-film"></p></a>
 
@@ -30,7 +28,6 @@
 				<% if current_user.user_level == 9 %>
 					<li class="pull-right"><%= link_to 'Admin Page', users_path %></li>
 				<% end %>
-
 
 			<% else %>
 
